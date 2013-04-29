@@ -473,5 +473,13 @@ $(document).ready(function(e){
 		
 	}
 
-	//device orientation
+	//colorbox for signs
+	$('#yearbook_main ul').on('vmousedown', 'img', function(e) {
+		$(this).colorbox({
+			href: $(this).attr('src'),
+			maxWidth: '80%',
+			className: 'yearbook_sign_bg'
+		});
+	});
+
 });
