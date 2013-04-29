@@ -1,0 +1,635 @@
+@import 'frame';
+
+//vars
+$aside_width: 5.37%;
+$aside_zIndex: 10;
+$nav_width: 35.3%;
+$nav_zIndex: -10;
+$document_paddingTop: 50px;
+$content_header: 27%;
+$content_footer: 9%;
+
+//main
+@include init;
+
+#wrapper {
+	display: none;
+}
+
+#poitrait_cover {
+	@include fullscreen;
+	overflow: hidden;
+	background: rgba(0,0,0,0.9);
+	#go_away {
+		width: 400px;
+		height: 200px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-left: -200px;
+		margin-top: -100px;
+		//background: white;
+		color: white;
+		h1 {
+			font-size: 16pt;
+			margin-bottom: 20px;
+		}
+	}
+}
+
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1920px) 
+and (orientation : landscape) {
+
+#poitrait_cover {
+	display: none;
+}
+
+#wrapper {
+	display: block;
+	@include fullscreen;
+	overflow: hidden;
+}
+
+// ====== page layout ======
+#canvas_container {
+	@include fullscreen;
+	z-index: 998;
+}
+
+aside {
+	width: $aside_width;
+	@include top-corner;
+	z-index: $aside_zIndex;
+	height: 100%;
+}
+
+nav {
+	width: $aside_width + $nav_width;
+	padding-left: $aside_width;
+	@include border-box;
+	float: left; //nav in bottom layer, absolute layers will be on top. must float for overflow to work
+	z-index: $nav_zIndex;
+	height: 100%;
+}
+
+section {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100% - $aside_width;
+	height: 100%;
+	@include border-box;
+	margin-left: $aside_width;
+	@include transition(0.8s, ease-out);
+	#main_content_container {
+		width: 66%;
+		float: left;
+		height: 100%;
+	}
+	#yearbook {
+		width: 34%;
+		float: right;
+		height: 100%;
+	}
+}
+
+// ====== main style ======
+#loading {
+
+	
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgb(255,255,255);
+	opacity: 0.7;
+	color: black;
+	z-index: 999;
+	height: 100%;
+	#loading_head {
+		margin-top: 10%;
+		height: 50%;
+		text-align: center;
+		width: 100%;
+		float: left;
+		img {
+			height: 100%;
+		}
+	}
+	#loading_text {
+		width: 100%;
+		float: left;
+		margin-top: 5%;
+		h1 {
+			font-size: 13pt;
+			width: 100%;
+			float: left;
+			text-align: center;
+		}
+	}
+}
+
+img.loading-bg {
+	background: whitesmoke url("../imgs/loading_style1.gif") no-repeat center center;
+}
+img.rounded {
+	border-radius: 50%;
+}
+
+#canvas_container {
+	display: none;
+	//@include transition(0.8s,ease-in-out);
+	canvas {
+		position: absolute;
+		top: 0;
+		left: 0;
+		background: url('../imgs/fabric_of_squares_gray.png');
+	}
+	ul {
+		position: absolute;
+		background: #212121 url("../imgs/canvas-brdr-lft.jpg") repeat-y left;
+		top: 0;
+		width: 10%;
+		@include border-box;
+		right: 0;
+		//@include transition(0.8s,ease-in-out);
+		//li#saveCanvas,
+		li {
+			width: 100%;
+			float: left;
+			text-align: center;
+			font-weight: bold;
+			font-family: 'Noto Sans', sans-serif;
+			color: #333;
+			display: block;
+			-webkit-appearance: none;
+			img {
+			}
+		}
+
+		li#saveCanvas {
+			background: red;
+			&:hover {
+				background: #1b5322;
+			}
+		}
+		li#fat_brush {
+			img {
+				height: 40px;
+			}
+		}
+		li#normal_brush {
+			background: rgba(255,255,255,0.5);
+			img {
+				height: 30px;
+				margin-top: 5%;
+			}
+		}
+		li#skinny_brush {
+			img {
+				height: 20px;
+				margin-top: 5%;
+			}
+		}
+		li#colorPicker {
+			
+		}
+		li#eraser {
+			
+		}
+		li#undo {
+			
+		}
+		li#clear {
+			
+		}
+		li#cancleCanvas {
+			background: #9e003a;
+			&:hover {
+				background: #9e003a;
+			}
+		}
+	}
+}
+
+aside {
+	background: #efefef;
+	ul {
+		width: 100%;
+		float: left;
+		li {
+			width: 100%;
+			border-top: 1px solid silver;
+			border-bottom: 1px solid silver;
+			@include border-box;
+			float: left;
+			img {
+				width: 100%;
+				float: left;
+			}
+			#facilityBtn,#galleryBtn {
+				display: none;
+			}
+		}
+		#logoBtn {
+			margin-top: $document_paddingTop;
+			background: #ccc;
+		}
+		#studentBtn {
+			margin-top: 125%;
+		}
+		#infoBtn {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			img {
+				width: 70%;
+				margin-left: 15%;
+
+			}
+		}
+	}
+}
+
+nav {
+			@include black-gradient;
+	#nav_container {
+		width: 100%;
+		float: left;
+		padding: $document_paddingTop 2.5% 25px 4%;
+		@include border-box;
+		#nav_top {
+			margin-bottom: 25px;
+			width: 100%;
+			float: left;
+			//height: $nav_topHeight;
+			li {
+				width: 14.285%;
+				//height: $nav_topHeight;
+				float: left;
+				overflow: hidden;
+				list-style: none;
+				@include transition(0.3s,ease-in-out);
+				//open the first tab
+				.nav_top_item {
+					//height: $nav_topHeight;
+					
+					.nav_top_icon {
+						width: 33%;
+						float: left;
+							border-radius: 5%;
+						//height: $nav_topHeight;
+						&:active{
+						}
+						img {
+							width: 100%;
+							vertical-align: middle;
+							margin-right: 3%;
+						}
+					}
+					p {
+						width: 63%;
+						float: right;
+						text-align: left;
+						color: #666;
+						text-transform:uppercase;
+						font-size: 10pt;
+						font-weight: bold;
+						font-family: 'Noto Sans', sans-serif;
+						line-height: 55px;
+					}
+				}
+			}
+		}
+		.black_line {
+			height: 5px;
+			width: 100%;
+			float: left;
+			padding: 10px 0;
+			.black_stroke {
+				height: 5px;
+				width:100%;
+				float: left;
+				background: #333;
+			}
+		}
+		#nav_main {
+			width: 100%;
+			float: left;
+			overflow-y: scroll;
+			-webkit-overflow-scrolling: touch; //ios native scrolling
+			@include border-box;
+			li {
+				width: 100%;
+				float: left;
+				position: relative;
+				opacity: 1;
+				margin-bottom: 5px;
+				cursor: pointer;
+				padding: 2% 0;
+				@include transition(0.25s,ease-in-out);
+				color: #555;
+				background: rgba(255,255,255,.1);
+				border-radius:0px;	
+				&:hover {
+				background: rgba(255,255,255,.4);
+				color: #222;
+				}
+				p {
+					font-size: 12pt;
+					letter-spacing: -1px;
+					float: left;
+					@include border-box;
+					margin-top: 3%;
+					padding-left: 2%;
+					font-weight: bold;
+					font-family: 'Noto Sans', sans-serif;
+						small {
+							font-size:7pt;
+							font-weight: normal;
+							display: block;
+							color: #777;
+							letter-spacing: 1px;
+						}
+				}
+				img {
+					float: left;
+					height: 50px;
+					margin-left: 2%;
+					border-radius: 50%;
+  					-webkit-box-shadow: 0px 0px 5px 0px #ccc; /* Android 2.3+, iOS 4.0.2-4.2, Safari 3-4 */
+  			        box-shadow: 0px 0px 5px 0px #ccc; /* Chrome 6+, Firefox 4+, IE 9+, iOS 5+, Opera 10.50+ */
+					&:hover {
+
+					}
+				}
+			}
+		}
+	}
+}
+section {
+	background: whitesmoke;
+	#landing {
+		@include fullscreen;
+		z-index: 99;
+		background: white;
+	}
+	#info {
+		@include fullscreen;
+		z-index: 98;
+		background: gray;
+		display: none;
+		#info-wrapper {
+				width: 100%;
+				height: 100%;
+			#info-container {
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+				text-align: center;
+				img {
+					height:100%;
+				}
+			}
+
+		}
+	}
+
+	#yearbook {
+		background: #404040;
+		z-index: 997;
+		color: #747474;
+		border-left: 7px solid #686868;
+		padding: 20px;
+		@include border-box;
+		#yearbook_header {
+			width: 100%;
+			float: left;
+			margin-bottom: 20px;
+			position: relative;
+			height: 40px;
+			line-height: 40px;
+			
+			
+			div#signBtn {
+				height: 40px;
+				box-shadow: 3px 3px 7px #686868;
+				@include transition(0.3s, ease-in-out);
+				text-align: center;
+				width: 100%;
+				float: left;
+				font-weight: bold;
+				font-family: 'Noto Sans', sans-serif;
+				color: #262626;
+				background: white;
+				line-height: 40px;
+				font-size: 16pt;
+				&:hover {
+					box-shadow: 0px 0px 7px #686868;
+				}
+			}
+		}
+		h3 {
+			text-transform: uppercase;
+			font-weight: bold;
+			font-size: 10pt;
+			width: 100%;
+			float: left;
+			color: white;
+			border-bottom: 2px white solid;
+			margin-bottom: 10px;
+		}
+		#yearbook_main {
+			width: 100%;
+			float: left;
+			
+			
+			ul {
+				width: 100%;
+				float: left;
+				li {
+					width: 100%;
+					margin-top: 5px;
+					margin-bottom: 5px;
+					background: url('../imgs/fabric_of_squares_gray.png');
+					float: left;
+					@include border-box;
+					box-shadow: 3px 3px 7px #686868;
+					img {
+						width: 100%;
+					}
+					overflow: hidden;
+					@include border-radius(3px);
+				}
+			}
+			height: 91%;
+			overflow-y: scroll;
+			-webkit-overflow-scrolling: touch; //ios native scrolling
+		}
+	}
+
+	#main_content_header {
+		width: 100%;
+		float: left;
+		height: $content_header;
+		background: url("../imgs/loading_style1.gif") no-repeat center center;
+		#main_content_cover {
+			height: 100%;
+			float: left;
+			width: 100%;
+			@include border-box;
+			background-image: url("../imgs/SW-blank.png");
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-size: cover;
+		}
+	}
+	#main_content {
+		width: 100%;
+		float: left;
+		height: 100% - $content_header - $content_footer;
+		background: whitesmoke;
+		
+		#pose {
+			width: 50%;
+			float: left;
+			@include border-box;
+			position: relative;
+			height: 100%;
+			img {
+				width: 100%;
+				position: absolute;
+				bottom: 0;
+				@include transition(0.3s, ease-in-out);
+				&:first-child {
+					opacity: 0;
+				}
+			}
+		}
+		#slider {
+			
+			width: 50%;
+			float: right;
+			@include border-box;
+			overflow: hidden;
+			height: 100%;
+			-webkit-perspective: 3200px;
+	           -moz-perspective: 3200px;
+	             -o-perspective: 3200px;
+	                perspective: 3200px;
+			#slider_container {
+				transform-origin:50% 50%;
+				-ms-transform-origin:50% 50%;
+				-webkit-transform-origin:50% 50%;
+				-webkit-transform-style: preserve-3d;
+		           -moz-transform-style: preserve-3d;
+		             -o-transform-style: preserve-3d;
+		                transform-style: preserve-3d;
+				width: 100%;
+				float: left;
+				position: relative;
+				height: 100%;
+				div {
+					width: 100%;
+					position: absolute;
+					top: 0;
+					left: 0;
+					height: 100%;
+					padding: 2%;
+					@include border-box;
+					-webkit-backface-visibility: hidden;
+			           -moz-backface-visibility: hidden;
+			             -o-backface-visibility: hidden;
+			                backface-visibility: hidden;
+					img {
+						width: 100%;
+					}
+				}
+				#selected_work2 {
+					-webkit-transform: rotateY( 180deg );
+			           -moz-transform: rotateY( 180deg );
+			             -o-transform: rotateY( 180deg );
+			                transform: rotateY( 180deg );
+				}
+				
+			}
+			
+			
+			
+			
+		}
+		
+	}
+	#main_content_footer {
+		width: 100%;
+		float: left;
+		height: $content_footer;
+		background: #404040;
+		border: 1px #404040 solid;
+		font-family: 'Noto Sans', sans-serif;
+		div.name {
+			color: white;
+			height: $content_footer;
+			float: left;
+			width: 49%;
+			img {
+				width: 40px;
+				float: left;
+				margin-top: 10px;
+				margin-right: 10px;
+				margin-left: 10px;
+			}
+			p {
+				font-size: 16px;
+				color: white;
+				line-height: 60px;
+				float: left;
+				font-weight: bold;
+			}
+		}
+		div.links {
+			width: 30%;
+			float: right;
+			img {
+				width: 40px;
+				float: right;
+				margin-top: 10px;
+				margin-left: 10px;
+				margin-right: 10px;
+			}
+			p {
+				font-size: 12px;
+				color: white;
+				float: right;
+				line-height: 60px;
+			}
+		}
+	}
+}
+span.tweeter {
+	color: #999;
+	font-size: 12px;
+	font-family: 'Noto Sans', sans-serif;
+}
+img.tweetericon {
+	text-align: left;
+	height: 20px;
+	vertical-align: text-bottom;
+}
+.aboutthisgradheader {
+	color: #ccc;
+	font-weight: bold;
+	font-size: 24px;
+	font-family: 'Noto Sans', sans-serif;
+}
+.aboutthisgrad {
+	color: #ccc;
+	font-size: 15px;
+	font-family: 'Noto Sans', sans-serif;
+	line-height:22px; 
+	width: 95%;
+}
+}
