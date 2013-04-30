@@ -29,13 +29,38 @@
 	h1 {
 		font-size: 16pt;
 	}
+	#confirm {
+		color: #ccc;
+		cursor: pointer;
+	}
+	#confirm:hover {
+		color: #464646;
+	}
+
 </style>
+<script>
+	function createCookie(name,value,days) {
+  if (days) {
+    var date = new Date();
+    date.setTime(date.getTime()+(days*24*60*60*1000));
+    var expires = "; expires="+date.toGMTString();
+  }
+  else var expires = "";
+  document.cookie = name+"="+value+expires+"; path=/";
+}
+
+function transfer(){
+	createCookie('desktop_confirm', true, 1/24/2);
+	window.location = 'index.html';
+}
+</script>
 </head>
 <body>
 <div id="cover">
     <div id="go_away">
-        <h1> Desktop is not Supported </h1>
-        <p> This application doesn't support Desktop, please launch this app in your Tablet for better experiences </p>
+        <h1> Desktop is not Fully Supported </h1>
+        <p> This application doesn't fully support Desktop, please launch this app in your Tablet for better experiences </p>
+        <p> please click <span id="confirm" onclick="transfer();"> HERE </span> to continue with Desktop version </p>
     </div>
 </div>
 </body>

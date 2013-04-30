@@ -1,14 +1,17 @@
 var currentStudent = '';
 var currentPage = 'logoBtn';
 $(document).ready(function(e){
-	/*if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) == false ) {
+	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) == false ) {
 		if(/iPhone/i.test(navigator.userAgent) == false){
-			window.location = 'desktop.html';
+			if(readCookie('desktop_confirm') == null){
+				window.location = 'desktop.html';
+			}
+			
 		} else {
 			window.location = 'iphone.html';
 		}
 	 	
-	}*/
+	}
 
 	//enable scrolling in nav
 	$("#nav_main").on('touchstart',function(e){
