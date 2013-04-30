@@ -35,6 +35,12 @@ $(document).ready(function(e){
 	$("#landing").on('touchmove',function(e){
 		e.stopPropagation();
 	});
+	$("#info").on('touchstart',function(e){
+		e.stopPropagation();
+	});
+	$("#info").on('touchmove',function(e){
+		e.stopPropagation();
+	});
 	$(document).on('touchmove',function(e) {
 		e.preventDefault();
 	});
