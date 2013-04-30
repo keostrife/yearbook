@@ -161,25 +161,54 @@ h3 {
         font-family: "Noto Sans", sans-serif;
         color: #333;
         display: block;
-        -webkit-appearance: none; }
-      #canvas_container ul li#saveCanvas {
-        background: red; }
-        #canvas_container ul li#saveCanvas:hover {
-          background: #1b5322; }
-      #canvas_container ul li#fat_brush img {
-        height: 40px; }
+        -webkit-appearance: none;
+        height: 38px;
+        line-height: 38px;
+        text-align: center; }
+        #canvas_container ul li img {
+          vertical-align: middle; }
+      #canvas_container ul li#fat_brush {
+        margin-top: 44px;
+        text-align: right;
+        margin-bottom: 12px; }
+        #canvas_container ul li#fat_brush img {
+          width: 90%; }
       #canvas_container ul li#normal_brush {
-        background: rgba(255, 255, 255, 0.5); }
+        text-align: right;
+        margin-bottom: 12px; }
         #canvas_container ul li#normal_brush img {
-          height: 30px;
-          margin-top: 5%; }
-      #canvas_container ul li#skinny_brush img {
-        height: 20px;
-        margin-top: 5%; }
+          width: 90%; }
+      #canvas_container ul li#skinny_brush {
+        text-align: right;
+        margin-bottom: 40px; }
+        #canvas_container ul li#skinny_brush img {
+          width: 90%; }
+      #canvas_container ul li#colorPicker {
+        text-align: center;
+        margin-bottom: 40px; }
+      #canvas_container ul li#eraser {
+        margin-bottom: 12px; }
+        #canvas_container ul li#eraser img {
+          height: 90%; }
+      #canvas_container ul li#undo {
+        margin-bottom: 12px; }
+        #canvas_container ul li#undo img {
+          height: 95%; }
+      #canvas_container ul li#clear {
+        margin-bottom: 40px; }
+        #canvas_container ul li#clear img {
+          height: 95%; }
+      #canvas_container ul li#saveCanvas {
+        margin-bottom: 20px;
+        height: 50px;
+        line-height: 50px; }
+        #canvas_container ul li#saveCanvas img {
+          height: 95%; }
       #canvas_container ul li#cancleCanvas {
-        background: #9e003a; }
-        #canvas_container ul li#cancleCanvas:hover {
-          background: #9e003a; }
+        height: 50px;
+        line-height: 50px; }
+        #canvas_container ul li#cancleCanvas img {
+          height: 95%; }
 
   aside {
     background: #efefef; }
@@ -360,10 +389,9 @@ h3 {
           section #info #info-wrapper #info-container img {
             height: 100%; }
     section #yearbook {
-      background: #404040;
+      background: url(../imgs/dvsup.png);
       z-index: 997;
       color: #747474;
-      border-left: 7px solid #686868;
       padding: 20px;
       box-sizing: border-box;
       -moz-box-sizing: border-box;
@@ -371,13 +399,15 @@ h3 {
       section #yearbook #yearbook_header {
         width: 100%;
         float: left;
-        margin-bottom: 20px;
         position: relative;
         height: 40px;
-        line-height: 40px; }
+        line-height: 40px;
+        margin-bottom: 10px;
+        padding-bottom: 30px;
+        border-bottom: 1px whitesmoke solid; }
         section #yearbook #yearbook_header div#signBtn {
-          height: 40px;
-          box-shadow: 3px 3px 7px #686868;
+          height: 60px;
+          background: url(../imgs/dvsup.png);
           transition: all 0.3s ease-in-out;
           -moz-transition: all 0.3s ease-in-out;
           -webkit-transition: all 0.3s ease-in-out;
@@ -387,25 +417,13 @@ h3 {
           float: left;
           font-weight: bold;
           font-family: "Noto Sans", sans-serif;
-          color: #262626;
-          background: white;
-          line-height: 40px;
-          font-size: 16pt; }
-          section #yearbook #yearbook_header div#signBtn:hover {
-            box-shadow: 0px 0px 7px #686868; }
-      section #yearbook h3 {
-        text-transform: uppercase;
-        font-weight: bold;
-        font-size: 10pt;
-        width: 100%;
-        float: left;
-        color: white;
-        border-bottom: 2px white solid;
-        margin-bottom: 10px; }
+          color: #262626; }
+          section #yearbook #yearbook_header div#signBtn img {
+            height: 100%; }
       section #yearbook #yearbook_main {
         width: 100%;
         float: left;
-        height: 91%;
+        height: 90%;
         overflow-y: scroll;
         -webkit-overflow-scrolling: touch; }
         section #yearbook #yearbook_main ul {
