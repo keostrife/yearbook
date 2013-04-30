@@ -236,10 +236,14 @@ h3 {
       aside ul #infoBtn {
         position: absolute;
         bottom: 0;
-        left: 0; }
+        left: 0;
+        height: 9%;
+        text-align: center; }
         aside ul #infoBtn img {
-          width: 70%;
-          margin-left: 15%; }
+          margin-top: 10%;
+          width: 100%;
+          margin-left: 0%;
+          vertical-align: middle; }
 
   nav {
     background: #eaeaea;
@@ -533,8 +537,8 @@ h3 {
       width: 100%;
       float: left;
       height: 9%;
-      background: #404040;
-      border: 1px #404040 solid;
+      background: url(../imgs/footer-brdr-top.png) repeat-x #3e3e3e;
+      border: 1px #3e3e3e solid;
       font-family: "Noto Sans", sans-serif; }
       section #main_content_footer div.name {
         color: white;
