@@ -1,14 +1,14 @@
 var currentStudent = '';
 var currentPage = 'logoBtn';
 $(document).ready(function(e){
-	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) == false ) {
+	/*if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) == false ) {
 		if(/iPhone/i.test(navigator.userAgent) == false){
 			window.location = 'desktop.html';
 		} else {
 			window.location = 'iphone.html';
 		}
 	 	
-	}
+	}*/
 
 	//enable scrolling in nav
 	$("#nav_main").on('touchstart',function(e){
@@ -499,4 +499,43 @@ $(document).ready(function(e){
 		});
 	});
 
+	//toggle instruction
+	var instruction = 1
+	var instruction_scrolling = false;
+	var mouseIsDownOnInstruction = false;
+	$('#instructions').on('vmousedown',function() {
+		mouseIsDownOnInstruction = true;
+	});
+	$('#instructions').on('vmousemove', function() {
+		if(mouseIsDownOnInstruction){
+			instruction_scrolling = true;
+		}
+		
+	});
+	$('#instructions').on('vmouseup', function() {
+		if (!instruction_scrolling) {
+			if(instruction == 1) {
+				$('#instructions img:first-child').css({
+					opacity: 0
+				});
+				$('#instructions img:last-child').css({
+					opacity: 1
+				});
+				instruction = 2;
+			} else {
+				$('#instructions img:first-child').css({
+					opacity: 1
+				});
+				$('#instructions img:last-child').css({
+					opacity: 0
+				});
+				instruction = 1;
+			}
+		}
+		mouseIsDownOnInstruction = false;
+		instruction_scrolling = false;
+	});
+
+	//prevent img dragging
+	$('img').on('dragstart', function(event) { event.preventDefault(); });
 });

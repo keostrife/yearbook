@@ -50,6 +50,10 @@ and (orientation : landscape) {
 	display: block;
 	@include fullscreen;
 	overflow: hidden;
+	-moz-user-select: none;
+	  -khtml-user-select: none;
+	  -webkit-user-select: none;
+	  user-select: none;
 }
 
 // ====== page layout ======
@@ -459,6 +463,25 @@ section {
 			#instructions {
 				width: 100%;
 				overflow-x: scroll;
+				-webkit-overflow-scrolling: touch; //ios native scrolling
+				position: relative;
+				height: 464px;
+				#instructions_container {
+					width: 1731px;
+					height: 464px;
+					position: relative;
+					img {
+						position: absolute;
+						top: 0;
+						left: 0;
+						height: 100%;
+						@include transition(0.3s, ease-in-out);
+						&:last-child {
+							opacity: 0;
+						}
+					}
+				}
+				
 			}			
 		}
 		h2 {
