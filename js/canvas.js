@@ -157,7 +157,7 @@ $(document).ready(function(e){
 	});
 	$("#cancleCanvas").on('click',function(){
 		if(lines.length != savedLines.length) {
-			if(confirm('You haven\'t saved it, are you sure you want to cancel?')) {
+			if(confirm('You haven\'t saved it, still cancel?')) {
 				$("#canvas_container").fadeOut(400);
 				lines = [];
 				savedLines = [];
@@ -170,7 +170,7 @@ $(document).ready(function(e){
 	});
 	$("#saveCanvas").on('click', function(){
 		
-		if(savedLines != lines){
+		if(savedLines.length != lines.length && lines.length > 0){
 			savedLines = lines;
 			$("#loading").fadeIn(300);
 			var canvasData = canvas.toDataURL();
@@ -196,6 +196,8 @@ $(document).ready(function(e){
 					$("#loading").fadeOut(300);
 				}
 			})
+		} else {
+			alert('Nothing to save');
 		}
 		
 	})
