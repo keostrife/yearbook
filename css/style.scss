@@ -399,6 +399,8 @@ section {
 		@include fullscreen;
 		z-index: 99;
 		background: white;
+		overflow-y: scroll;
+		-webkit-overflow-scrolling: touch; //ios native scrolling
 	}
 	#info {
 		@include fullscreen;
