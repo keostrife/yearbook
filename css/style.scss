@@ -398,9 +398,83 @@ section {
 	#landing {
 		@include fullscreen;
 		z-index: 99;
-		background: white;
+		background: white url("../imgs/CS-credits.jpg")no-repeat center center fixed;
+		background-size: cover;
 		overflow-y: scroll;
 		-webkit-overflow-scrolling: touch; //ios native scrolling
+		font-family: 'Noto Sans', sans-serif;
+		width: 100%;
+		#landing-01 {
+			width: 90%;
+			height: 85%;
+			padding: 5%;
+		}
+		#landing-02 {
+			background: whitesmoke;
+			width: 90%;
+			padding: 5% 5% 0 5%;
+			div.left_div {
+				width: 30%;
+				float: left;
+			}
+			div.right_div {
+				width: 68%;
+				float: right;
+				p {
+					font-size: 14px;
+					text-align: left;
+					img {
+						width: 100px;
+					}
+				}
+				h2 {
+					font-size: 24px;
+					text-align: left;
+				}
+			}
+		}
+		#landing-03 {
+			background: url("../imgs/shatteredblk.png");
+			color: whitesmoke;
+			width: 90%;
+			padding: 5%;
+			text-align: center;
+			img {
+				width:18%;
+			}
+			h2 {
+				font-size: 24px;
+			}
+			h3.bold {
+				font-weight: bold;
+			}
+			
+		}
+		#landing-04{
+			background: url("../imgs/shattered.png");
+			color: #333333;
+			width: 90%;
+			padding: 5%;
+			text-align: center;
+			#instructions {
+				width: 100%;
+				overflow-x: scroll;
+			}			
+		}
+		h2 {
+			font-size: 50px;
+			font-weight: bold;
+			width: 100%;
+			text-align: center;
+		}
+		p {
+			width: 100%;
+			text-align: center;
+			img {
+				height: 30px;
+				opacity: 0.4;
+			}
+		}
 	}
 	#info {
 		@include fullscreen;
