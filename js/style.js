@@ -1,7 +1,7 @@
 var currentStudent = '';
 var currentPage = 'logoBtn';
 $(document).ready(function(e){
-	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) == false ) {
+	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile|hp/i.test(navigator.userAgent) == false ) {
 		if(/iPhone/i.test(navigator.userAgent) == false){
 			if(readCookie('desktop_confirm') == null){
 				window.location = 'desktop.html';
@@ -102,10 +102,6 @@ $(document).ready(function(e){
 	$("#nav_main").customFullHeight();
 	$(".nav_top_item").widthAdjust();
 	$("#nav_top, #nav_top li, .nav_top_item, .nav_top_icon").css({"height": $("#nav_top").width() * 14.285/100 + "px"});
-	window.onresize = function(){
-		//$("aside, nav").fullHeight();
-		
-	}
 	
 	//reveal nav method
 	var isNavActive = false;
