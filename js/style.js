@@ -29,6 +29,12 @@ $(document).ready(function(e){
 	$("#yearbook_main").on('touchmove',function(e){
 		e.stopPropagation();
 	});
+	$("#landing").on('touchstart',function(e){
+		e.stopPropagation();
+	});
+	$("#landing").on('touchmove',function(e){
+		e.stopPropagation();
+	});
 	$(document).on('touchmove',function(e) {
 		e.preventDefault();
 	});
