@@ -161,3 +161,9 @@ pip-log.txt
 
 # Mac crap
 .DS_Store
+
+# Ignore everything in css/.sass-cache
+css/.sass-cache/*
+
+# ignore style.css
+css/style.css
