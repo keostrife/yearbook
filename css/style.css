@@ -155,7 +155,7 @@ h3 {
         float: left;
         text-align: center;
         font-weight: bold;
-        font-family: "Noto Sans", sans-serif;
+        font-family: 'Noto Sans', sans-serif;
         color: #333;
         display: block;
         -webkit-appearance: none;
@@ -295,7 +295,7 @@ h3 {
             text-transform: uppercase;
             font-size: 10pt;
             font-weight: bold;
-            font-family: "Noto Sans", sans-serif;
+            font-family: 'Noto Sans', sans-serif;
             line-height: 55px; }
       nav #nav_container .black_line {
         height: 5px;
@@ -343,7 +343,7 @@ h3 {
             margin-top: 3%;
             padding-left: 2%;
             font-weight: bold;
-            font-family: "Noto Sans", sans-serif; }
+            font-family: 'Noto Sans', sans-serif; }
             nav #nav_container #nav_main li p small {
               font-size: 7pt;
               font-weight: normal;
@@ -355,9 +355,9 @@ h3 {
             height: 50px;
             margin-left: 2%;
             border-radius: 50%;
-            -webkit-box-shadow: 0px 0px 5px 0px #cccccc;
+            -webkit-box-shadow: 0px 0px 5px 0px #ccc;
             /* Android 2.3+, iOS 4.0.2-4.2, Safari 3-4 */
-            box-shadow: 0px 0px 5px 0px #cccccc;
+            box-shadow: 0px 0px 5px 0px #ccc;
             /* Chrome 6+, Firefox 4+, IE 9+, iOS 5+, Opera 10.50+ */ }
 
   section {
@@ -417,7 +417,7 @@ h3 {
           width: 100%;
           float: left;
           font-weight: bold;
-          font-family: "Noto Sans", sans-serif;
+          font-family: 'Noto Sans', sans-serif;
           color: #262626; }
           section #yearbook #yearbook_header div#signBtn img {
             height: 100%; }
@@ -536,7 +536,7 @@ h3 {
       height: 9%;
       background: url(../imgs/footer-brdr-top.png) repeat-x #3e3e3e;
       border: 1px #3e3e3e solid;
-      font-family: "Noto Sans", sans-serif; }
+      font-family: 'Noto Sans', sans-serif; }
       section #main_content_footer div.name {
         color: white;
         height: 9%;
@@ -572,7 +572,7 @@ h3 {
   span.tweeter {
     color: #999;
     font-size: 12px;
-    font-family: "Noto Sans", sans-serif; }
+    font-family: 'Noto Sans', sans-serif; }
 
   img.tweetericon {
     text-align: left;
@@ -583,12 +583,12 @@ h3 {
     color: #ccc;
     font-weight: bold;
     font-size: 24px;
-    font-family: "Noto Sans", sans-serif; }
+    font-family: 'Noto Sans', sans-serif; }
 
   .aboutthisgrad {
     color: #ccc;
     font-size: 15px;
-    font-family: "Noto Sans", sans-serif;
+    font-family: 'Noto Sans', sans-serif;
     line-height: 22px;
     width: 95%; }
 
