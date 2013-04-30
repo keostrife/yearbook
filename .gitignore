@@ -163,10 +163,7 @@ pip-log.txt
 .DS_Store
 
 # Ignore everything in css/.sass-cache
-css/.sass-cache/*
+css/.sass-cache/**/*
 
 # ignore style.css
-css/style.css
-
-
 css/style.css
