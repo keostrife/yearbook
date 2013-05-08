@@ -15,7 +15,7 @@ $(document).ready(function(e){
 		$(".nav_top_item").widthAdjust();
 		$("#nav_top, #nav_top li, .nav_top_item, .nav_top_icon").css({"height": $("#nav_top").width() * 14.285/100 + "px"});
 	}
-	window.ondevice
+	
 	var canvasMouseDown = false;
 	var mouseX;
 	var mouseY;

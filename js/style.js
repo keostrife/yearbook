@@ -368,18 +368,18 @@ $(document).ready(function(e){
 	    };
 	}
 	$("body").on('swipeleft', function(){
-		if(swipePos == 'middle'){
+		if(swipePos == 'middle' && !individualPage){
 			closeNav();
 		}
 	});
 	$("body").on('swiperight', function(){
-		if(swipePos == 'left'){
+		if(swipePos == 'left' && !individualPage){
 			if(isNavActive){
 				closeNav();
 			} else {
 				revealNav();
 			}
-		} else if (swipePos == 'middle') {
+		} else if (swipePos == 'middle' && !individualPage) {
 			closeYearbook();
 		}
 	});
